@@ -18,7 +18,7 @@ class Usuario(UserMixin):
 
 class Vendedor(Usuario):
 
-    def __init__(self, id_usuario, nombre, correo, password,imagen_perfil, imagen_test):
+    def __init__(self, id_usuario, nombre, correo, password,imagen_perfil, imagen_test=None):
         super().__init__(id_usuario, nombre, correo, password, imagen_perfil)
         self.imagen_test = imagen_test
 

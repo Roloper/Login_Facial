@@ -21,7 +21,7 @@ class ModelAdmin:
     def register(cls, db, admin):
         try:
             cursor = db.connection.cursor()
-            sql = "INSERT INTO Admin (id_usuario) VALUES ({})".format(
+            sql = "INSERT INTO Admin (id_usuario, nombre, correo, password, imagen_perfil) VALUES ({},{},{})".format(
                 admin.id_usuario)
             cursor.execute(sql)
             db.connection.commit()
