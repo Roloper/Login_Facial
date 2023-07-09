@@ -3,18 +3,9 @@ CREATE TABLE Usuario (
   Nombre VARCHAR(100),
   correo VARCHAR(100),
   contrasena VARCHAR(100),
-  imagen_perfil BLOB
-);
-
-CREATE TABLE Vendedor (
-  id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-  imagen_test BLOB,
-  FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
-);
-
-CREATE TABLE Admin (
-  id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-  FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
+  admin BOOLEAN DEFAULT FALSE,
+  imagen_perfil BLOB DEFAULT NULL,
+  imagen_test BLOB DEFAULT NULL
 );
 
 CREATE TABLE Venta (
@@ -22,7 +13,7 @@ CREATE TABLE Venta (
   fecha DATE,
   obs VARCHAR(255),
   id_usuario INT,
-  FOREIGN KEY (id_usuario) REFERENCES Vendedor (id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
 );
 
 CREATE TABLE Producto (
@@ -31,7 +22,7 @@ CREATE TABLE Producto (
   descripcion VARCHAR(255),
   precio_uni INT,
   id_usuario INT,
-  FOREIGN KEY (id_usuario) REFERENCES Vendedor (id_usuario)
+  FOREIGN KEY (id_usuario) REFERENCES Usuario (id_usuario)
 );
 
 CREATE TABLE Detalle (

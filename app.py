@@ -1,17 +1,21 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory
+#Librerias
+from flask import Flask, render_template, request, redirect, url_for, flash, send_from_directory, Response
 from config import config
 from flask_mysqldb import MySQL
 from flask_wtf.csrf import CSRFProtect
 from flask_login import LoginManager, login_user, logout_user, login_required, current_user #_-----
 from werkzeug.utils import secure_filename
-from datetime import datetime
 import os
-import requests
+from datetime import datetime
+
+#Facial
+from Facial.facial import generate
 
 # Models
 from models.ModelUser import ModelUser
 
 # Entities
+from models.entities.Usuario import User
 # from models.entities.Producto import Producto
 # from models.entities.Publicacion import Publicacion
 # from models.entities.User import User
@@ -61,12 +65,16 @@ def ventas():
 def productos():
     return render_template('productos.html')
 
+@app.route("/video_feed")
+def video_feed():
+     return Response(generate(),
+          mimetype = "multipart/x-mixed-replace; boundary=frame")
 
 # URL PARA EL LOGIN
 @app.route('/login', methods=['GET', 'POST'])  # persona o empresa
 def login():
     if request.method == 'POST':
-        user = User(0, 0, request.form['a_username'], request.form['a_password'], 0, 0, 0, 0, 0)
+        user = User(0, 0, request.form['correo'], request.form['password'], 0)
         logged_user = ModelUser.login(db,user)
 
         if logged_user != None:
@@ -125,99 +133,7 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-# url de home para pagina principal
-@app.route('/Home')
-@login_required
-def Home():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'imagen' not in request.files:
-            print('No file part')
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['imagen']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        if file.filename == '':
-            print('No selected part')
-            flash('No selected file')
-            return redirect(request.url)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-        publi = Publicacion(
-            None,
-            current_user.id_usuario,
-            request.form['titulo'],
-            request.form['contenido'],
-            filename,
-        )
-        print("todo bien")
-        try:
-            ModelPublicaciones.create_publicacion(db, publi)
-            print("todo bien x2")
-            return redirect(url_for('home'))
-
-        except Exception as ex:
-            return str(ex)
-
-    else:
-        sugeridos = ModelUser.get_no_amigos(db, current_user.id_usuario)
-        publicaciones_amigos = ModelPublicaciones.get_publicaciones_amigos(db, current_user.id_usuario)
-        all = ModelUser.get_all_users(db)
-        return render_template('home.html', sugeridos=sugeridos, publicaciones_amigos=publicaciones_amigos, all = all)
-
-
-
-
-@app.route('/connect/<int:user_id>', methods=['POST'])
-@login_required
-def connect(user_id):
-    # Enviar solicitud de conexión
-    ModelUser.enviar_solicitud(db,current_user.id_usuario, user_id)
-    flash('Se ha enviado una solicitud de conexión al usuario.')
-    return redirect(url_for('Home'))
-
-@app.route('/perfil', methods=['GET','POST'])
-@login_required
-def perfil():
-    if request.method == 'POST':
-        # check if the post request has the file part
-        if 'imagen' not in request.files:
-            print('No file part')
-            flash('No file part')
-            return redirect(request.url)
-        file = request.files['imagen']
-        # If the user does not select a file, the browser submits an
-        # empty file without a filename.
-        if file.filename == '':
-            print('No selected part')
-            flash('No selected file')
-            return redirect(request.url)
-        filename = secure_filename(file.filename)
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-
-        publi = Publicacion(
-            None,
-            current_user.id_usuario,
-            request.form['titulo'],
-            request.form['contenido'],
-            filename,
-        )
-        print("todo bien")
-        try:
-            ModelPublicaciones.create_publicacion(db, publi)
-            print("todo bien x2")
-            return redirect(url_for('perfil'))
-
-        except Exception as ex:
-            return str(ex)
-
-    else:
-
-        solicitudes = ModelUser.get_solicitudes(db, current_user.id_usuario)
-        publicaciones = ModelPublicaciones.get_publicaciones_usuario(db, current_user.id_usuario)
-        return render_template('perfil/perfil.html',publicaciones=publicaciones, solicitudes = solicitudes)
+#@login_required
 
 def status_401(error):
     return redirect(url_for('index'))
