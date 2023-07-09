@@ -6,11 +6,11 @@ function tipodeRol() {
 
   if (!admin) {
     // Desaparecer la opción de vendedores
-    var vendedoresOpcion = document.querySelector("a[href='vendedores.html']").parentNode;
+    var vendedoresOpcion = document.querySelector("a[href='../templates/vendedores.html']").parentNode;
     vendedoresOpcion.style.display = "none";
 
     // Cambiar la referencia de la opción inicio
-    var inicioOpcion = document.querySelector("a[href='index.html']");
+    var inicioOpcion = document.querySelector("a[href='../templates/index.html']");
     inicioOpcion.href = "indexUsuario.html";
   }
 }

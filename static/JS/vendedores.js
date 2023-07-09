@@ -51,7 +51,7 @@ function generarVendedores() {
     modificarDiv.className = "modificarDiv";
 
     var modificar = document.createElement("img");
-    modificar.src = "icon/eliminarIcon.svg";
+    modificar.src = "../static/IMAGE.SVG/eliminarIcon.svg";
     modificar.alt = "eliminar";
     modificar.className = "modificar";
 

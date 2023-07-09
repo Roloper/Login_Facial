@@ -67,7 +67,7 @@ añadirBtn.addEventListener('click', () => {
       precioTd.textContent = producto.precio.toFixed(2);
       importeTd.textContent = calcularImporte(cantidad, producto.precio).toFixed(2);
 
-      eliminarTd.innerHTML = '<img src="icon/eliminaricon.svg" alt="Eliminar" class="imagen-pequena">';
+      eliminarTd.innerHTML = '<img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena">';
       eliminarTd.addEventListener('click', eliminarCompra.bind(null, filaExistente));
     } else {
       // Crear una nueva fila en la tabla
@@ -136,7 +136,7 @@ function crearNuevaFila(opcion, cantidad, producto) {
 
   const eliminarTd = document.createElement('td');
   const eliminarImg = document.createElement('img');
-  eliminarImg.src = 'icon/eliminaricon.svg';
+  eliminarImg.src = '../static/IMAGE.SVG/eliminaricon.svg';
   eliminarImg.alt = 'Eliminar';
   eliminarImg.classList.add('imagen-pequena');
   eliminarTd.appendChild(eliminarImg);

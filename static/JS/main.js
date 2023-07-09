@@ -8,7 +8,7 @@ function generarVendedores() {
       vendedorDiv.className = "vendedor";
   
       var imagen = document.createElement("img");
-      imagen.src = "icon/usuarioEjemplo.svg";
+      imagen.src = "../static/IMAGE.SVG/usuarioEjemplo.svg";
       imagen.alt = "salir";
   
       var nombreVendedor = document.createElement("p");
