@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style/Style.css">
+    <title>Administrador Inicio</title>
+
+</head>
+<body>
+    <div class="encabezado">
+        <div class="izquierda">
+            <div class="menu">
+                <img src="icon/menu.svg" alt="menu">
+                <p>MENÚ</p>
+            </div>
+            <ul class="opciones">
+                <li>
+                    <a href="index.html">
+                        <div class="opcion">
+                            <img src="icon/inicioOpcion.svg" alt="menu">
+                            <p>Inicio</p>
+                        </div>  
+                    </a>                
+                </li>
+                <li>
+                    <a href="vendedores.html">
+                        <div class="opcion">
+                            <img src="icon/vendedorOpcion.svg" alt="menu">
+                            <p>Vendedores</p>
+                        </div>  
+                    </a>
+                </li>
+                <li>
+                    <a href="ventas.html">
+                        <div class="opcion">
+                            <img src="icon/ventasOpcion.svg" alt="menu">
+                            <p>Ventas</p>
+                        </div>  
+                    </a>
+                </li>
+                <li class="opcionfinal">
+                    <a href="productos.html">
+                        <div class="opcion">
+                            <img src="icon/productosOpcion.svg" alt="menu">
+                            <p>Productos</p>
+                        </div>  
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="centro">
+            <h1>INICIO</h1>
+        </div>
+        <div class="derecha">
+            <div class="rol">
+                <p>Administrador</p>
+            </div>
+            <div class="salir" >
+                <img src="icon/salir.svg" alt="salir">
+            </div>
+        </div>
+        
+    </div>
+    <div class="contenido">
+        <div class="cuadro">
+            <div class="tituloCuadro">
+              <h2>SESIONES ACTIVAS RECIENTES</h2>
+            </div>
+            <div class="contCuadro" id="contenedorVendedores">
+            </div>
+          </div>
+          
+          <div class="cuadro">
+            <div class="tituloCuadro">
+              <h2>VENTAS RECIENTES</h2>
+            </div>
+            <div class="contCuadro">
+              <table id="tablaVentas">
+                <tr>
+                  <th>N° VENTA</th>
+                  <th>TOTAL</th>
+                </tr>
+              </table>
+            </div>
+          </div>
+          
+    </div>
+    <script src="script/main.js"></script>
+</body>
+</html>

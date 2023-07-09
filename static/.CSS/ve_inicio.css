@@ -1,0 +1,336 @@
+*{
+    box-sizing: border-box;
+    height: 100%;
+    margin:0px;
+    margin-top: 0px;
+  }
+
+
+
+  img{
+    -webkit-user-drag: none;
+  }
+  a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+
+  .contCuadro::-webkit-scrollbar {
+    width: 13px;  
+    
+  }
+  
+  
+  .contCuadro::-webkit-scrollbar-thumb {
+    background-color: rgb(210, 210, 212);
+    border-radius: 20px;   
+    border: 3px solid rgb(175, 173, 173); 
+}
+.encabezado{
+    display: flex;
+    height: 9.17%;
+    justify-content: space-between;
+    align-items: center;
+    background: rgb(98,143,157);
+background: linear-gradient(90deg, rgba(98,143,157,1) 0%, rgba(147,198,214,1) 28%, rgba(98,143,157,1) 46%, rgba(123,178,195,1) 72%, rgba(98,143,157,1) 100%);
+}
+
+.izquierda{
+    width: 33%;
+    position: relative; 
+}
+
+.menu{
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu p{
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: filter 0.4s;
+    font-family: sans-serif;
+}
+.menu img{
+    filter: invert(100%);
+    transition: filter 0.4s;
+}
+.menu:hover img{
+    filter: invert(0%);
+}
+
+.menu:hover p {
+    filter: invert(100%);
+}
+
+.menu:hover + .opciones, .opciones:hover {
+    display: block;
+    opacity: 1;
+  }
+  
+  
+  .opciones {
+    padding: 0;
+    width: 25%;
+    height: 85%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    opacity: 0;
+    display: none;
+
+    
+  }
+  .opcion {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    
+  }
+  .opcion p{
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 12px;
+
+}
+.opcion img{
+
+        filter: invert(100%);
+        transition: filter 0.4s;
+}
+  .opciones li {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    background-color: #628F9D;
+    color:#FFF;
+    transition: background-color 0.4s;
+
+  }
+  .opcionfinal {
+    border-bottom-right-radius: 20px;
+  }
+  .opciones li:hover {
+    background-color: #1B3761;
+  }
+.centro{
+    width: 33%;
+}
+.centro h1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    }
+.derecha{
+    display: flex;
+    height: 100%;
+    width: 33%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2%;
+
+}
+.rol{
+    margin-left: 57%;
+    width: 30%;
+    height: 59%;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    border-radius: 35px;
+
+}
+.rol p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 130%;
+}
+
+.salir{
+    width: 10%;
+    height: 57%;
+    filter: invert(100%);
+    transition: filter 0.4s;
+    cursor: pointer;
+}
+.salir:hover{
+    filter: invert(0%);
+}
+
+.Contenido5{
+  background-color: rgb(255, 255, 255);
+}
+
+.Cuadro4{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-left: 5%;
+  width: 90%;
+  height: 80%;
+  padding: 2%; 
+  text-align: center;
+  background: #CAD7DB;
+  border-radius: 30px;
+}
+
+.ContCuadro3 {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  border-radius: 20px;
+  width: 100%;
+  height: 70%;
+}
+
+.fila1 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+
+}
+
+.fila2 {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  margin-left: 25px;
+}
+
+.PCSS {
+  display: flex;
+  flex: 1;
+}
+
+.Añadir{
+  margin-right: 30px;
+}
+.Añadir button{
+  background: #628F9D;
+  border-radius: 17px;
+  border: 1px solid #628F9D;
+  color: white;
+  width: 110%;
+  cursor: pointer;
+}
+
+.NP {
+  display: flex;
+  align-items: center;
+  width: 71%;
+
+}
+
+.NP label{
+  width: 25%; 
+  height: 80%;
+
+}
+
+.NP select {
+  width: 50%; 
+  height: 70%;
+  text-align: right;
+}
+
+.P, .C, .S {
+  display: flex;
+  width: 20%; 
+  align-items: center;
+}
+
+input {
+  flex: 1;
+  width: 60%;
+  height: 70%;
+  margin-right: 10px;
+}
+
+.P label, .C label, .S label{
+  width: 40%; 
+  height: 50%;
+
+}
+
+.ContCuadro4 {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    border-radius: 20px;
+    height: 1500px;
+    overflow-y: scroll;
+    padding: 30px;
+    background-color: #FFF;
+  }
+  
+
+.Tabla4 {
+    display: block;
+    justify-content: center;
+    width: 100%;
+  }
+
+.imagen-pequena {
+  width: 40px; /* Ajusta el ancho según tus necesidades */
+  height: auto; /* Mantiene la proporción de aspecto original */
+}
+
+
+table {
+    border-collapse: collapse;
+    border-spacing: 10px;
+    width: 100%;
+}
+th , td {
+
+    background-color: #D9D9D9;
+    width: 20%;
+    height: 20px;
+    text-align: center;
+}
+.ContCuadro5{
+    display: flex;
+    padding-left: 70%;
+    margin-top: 30px;    
+}
+.ContCuadro5 p{
+    justify-content: center;
+    width: 40%;   
+    height: 50%; 
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+.ContCuadro5 span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+    height: 50%;
+    background-color: #FFF;
+    border-radius: 25px;
+    font-size: 23px;
+
+}
