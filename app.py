@@ -23,7 +23,9 @@ from models.entities.Usuario import User
 #------------------------------
 app = Flask(__name__, template_folder='template')
 csrf = CSRFProtect()
+
 db = MySQL(app)
+
 login_manager_app = LoginManager(app)
 app.config['UPLOAD_FOLDER'] = 'static/img'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'NEF'}
