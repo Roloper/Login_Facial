@@ -3,17 +3,15 @@ import os
 import numpy as np
 #import mysql.connector
 from config import config
+from models.ModelUser import ModelUser
+from models.entities.Usuario import User
+
 development_config = config['development']
 
-# conexion = mysql.connector.connect(
-#     host=development_config.MYSQL_HOST,
-#     user=development_config.MYSQL_USER,
-#     password=development_config.MYSQL_PASSWORD,
-#     database=development_config.MYSQL_DB
-# )
 def train_face_recognizer():
-    dataPath = './Data'
-    peopleList = os.listdir(dataPath)
+    #dataPath = './Data'
+    #peopleList = os.listdir(dataPath)
+    peopleList = ModelUser.get_all_users() # peopleList = users
     print('Lista de personas:', peopleList)
 
     labels = []
@@ -21,7 +19,7 @@ def train_face_recognizer():
     label = 0
 
     for nameDir in peopleList:
-        personPath = dataPath + '/' + nameDir
+        #personPath = dataPath + '/' + nameDir
         print('Leyendo las imágenes')
 
         for fileName in os.listdir(personPath):
