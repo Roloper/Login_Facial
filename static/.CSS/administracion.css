@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    margin-top: 0;
+}
+
+
+th,
+td {
+
+    background-color: #FFF;
+
+}
+
+a {
+    text-decoration: none;
+    color: #FFF;
+    cursor: pointer;
+}
+
+img {
+    -webkit-user-drag: none;
+}
+
+
+.encabezado {
+    display: flex;
+    height: 9.17%;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(98, 143, 157, 1) 0%, rgba(147, 198, 214, 1) 28%, rgba(98, 143, 157, 1) 46%, rgba(123, 178, 195, 1) 72%, rgba(98, 143, 157, 1) 100%);
+}
+
+.izquierda {
+    width: 33%;
+    position: relative;
+}
+
+.menu {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.menu p {
+    color: #FFF;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    transition: filter 0.4s;
+    font-family: sans-serif;
+}
+
+.menu img {
+    filter: invert(100%);
+    transition: filter 0.4s;
+}
+
+.menu:hover img {
+    filter: invert(0%);
+}
+
+.menu:hover p {
+    filter: invert(100%);
+}
+
+.menu:hover+.opciones,
+.opciones:hover {
+    display: block;
+    opacity: 1;
+}
+
+.opciones {
+    padding: 0;
+    width: 25%;
+    height: 85%;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    opacity: 0;
+    display: none;
+}
+
+.opcion {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+.opcion p {
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 12px;
+}
+
+.opcion img {
+    filter: invert(100%);
+    transition: filter 0.4s;
+}
+
+.opciones li {
+    list-style: none;
+    padding: 10px;
+    text-align: center;
+    background-color: #628F9D;
+    color: #FFF;
+    transition: background-color 0.4s;
+}
+
+.opcionfinal {
+    border-bottom-right-radius: 20px;
+}
+
+.opciones li:hover {
+    background-color: #1B3761;
+}
+
+.centro {
+    width: 33%;
+}
+
+.centro h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFF;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+}
+
+.derecha {
+    display: flex;
+    height: 100%;
+    width: 33%;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2%;
+}
+
+.rol {
+    margin-left: 57%;
+    width: 30%;
+    height: 59%;
+    text-align: center;
+    background-color: #FFF;
+    border-radius: 35px;
+}
+
+.rol p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000;
+    font-size: 15px;
+    font-style: normal;
+    font-family: sans-serif;
+    font-weight: 400;
+    letter-spacing: 2px;
+    line-height: 130%;
+}
+
+.salir {
+    width: 10%;
+    height: 57%;
+    filter: invert(100%);
+    transition: filter 0.4s;
+    cursor: pointer;
+}
+
+.salir:hover {
+    filter: invert(0%);
+}
+
+.Contenido {
+    display: flex;
+    flex-direction: column;
+    height: 90.83%;
+    justify-content: space-between;
+
+}
+
+.Titulos {
+    height: 12%;
+    display: flex;
+    align-items: center;
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-right: 50px;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+
+}
+
+.Titulos span {
+
+    width: 17%;
+    background-color: #CAD7DB;
+    border-radius: 30px;
+    
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+
+.Cuadro2 {
+    height: 80%;
+    align-items: center;
+    margin: 2%;
+    margin-top: 1%;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #CAD7DB;
+    border-radius: 20px;
+    overflow-y: auto;
+}
+.Cuadro2::-webkit-scrollbar {
+    width: 13px;  
+    
+  }
+  
+  
+.Cuadro2::-webkit-scrollbar-thumb {
+    background-color: rgb(210, 210, 212);
+    border-radius: 20px;   
+    border: 3px solid rgb(175, 173, 173); 
+}
+
+.Cuadro2 table {
+    border-collapse: separate;
+    border-spacing: 10px;
+    width: 100%;
+    height: auto;
+}
+
+th , td {
+    
+    width: 20%;
+    height: 60px;
+    border-radius: 20px;
+    text-align: center;
+}

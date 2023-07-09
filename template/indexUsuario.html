@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../static/.CSS/Style_VE_Inicio.css">
+    <title>Vendedor Inicio</title>
+    <style>
+        table,th,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        th,td{
+            padding: 10px;
+        }
+
+        th,td{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="encabezado">
+        <div class="izquierda">
+            <div class="menu">
+                <img src="../static/IMAGE.SVG/menu.svg" alt="menu">
+                <p>MENÚ</p>
+            </div>
+            <ul class="opciones">
+                <li>
+                    <a href="indexUsuario.html">
+                        <div class="opcion">
+                            <img src="../static/IMAGE.SVG/inicioOpcion.svg" alt="menu">
+                            <p>Inicio</p>
+                        </div>  
+                    </a>                
+                </li>
+                <li>
+                    <a href="ventas.html">
+                        <div class="opcion">
+                            <img src="../static/IMAGE.SVG/ventasOpcion.svg" alt="menu">
+                            <p>Ventas</p>
+                        </div>  
+                    </a>
+                </li>
+                <li class="opcionfinal">
+                    <a href="productos.html">
+                        <div class="opcion">
+                            <img src="../static/IMAGE.SVG/productosOpcion.svg" alt="menu">
+                            <p>Productos</p>
+                        </div>  
+                    </a>
+                </li>
+            </ul>
+            
+        </div>
+        <div class="centro">
+            <h1>INICIO</h1>
+        </div>
+        <div class="derecha">
+            <div class="rol">
+                <p>Usuario</p>
+            </div>
+            <div class="salir" >
+                <img src="../static/IMAGE.SVG/salir.svg" alt="salir">
+            </div>
+        </div>
+        
+    </div>
+        
+        <div class="Contenido5">
+            <div class="Cuadro4">
+                <div class="ContCuadro3">
+                    <div class="fila1">
+                      <div class="NP">
+                        <label for="combo">Nombre del Producto:</label>
+                        <select id="combo">
+                          <option value="opcion1">Opción 1</option>
+                          <option value="opcion2">Opción 2</option>
+                          <option value="opcion3">Opción 3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="fila2">
+                      <div class="PCSS">
+                        <div class="P">
+                          <label for="precio">Precio:</label>
+                          <input type="text" id="precio" value="0.00" disabled>
+                        </div>
+                        <div class="C">
+                          <label for="cantidad">Cantidad:</label>
+                          <input type="text" id="cantidad">
+                        </div>
+                        <div class="S">
+                          <label for="stock">Stock:</label>
+                          <input type="text" id="stock" value="0.00" disabled>
+                        </div>
+                      </div>
+                      <div class="Añadir">
+                        <button>Añadir Producto</button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="ContCuadro4">
+                    <div class="Tabla4">
+                        <table>
+                            <tr>
+                                <th>#DESCRIPCIÓN</th>
+                                <th>CANTIDAD</th>
+                                <th>P.UNID</th>
+                                <th>IMPORTE</th>
+                                <th>ELIMINAR</th>
+
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            <tr>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td>     </td>
+                                <td><img src="../static/IMAGE.SVG/eliminaricon.svg" alt="Eliminar" class="imagen-pequena"></td>
+                            </tr>
+                            
+                            
+                          
+                            
+                            
+                            
+
+                        </table>
+                    </div>                   
+                </div>
+
+                <div class="ContCuadro5">
+                <p>TOTAL:</p>
+                <span id="total-span"></span>
+                </div>
+
+            </div>
+
+        </div>
+        <script src="../static/JS/mainUsuario.js"></script>
+
+</body>
+
+</html>
