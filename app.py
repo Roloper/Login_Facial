@@ -41,11 +41,25 @@ def download_file(name):
 # URL PRINCIPAL
 @app.route('/')
 def index():
-    return render_template('auth/index.html')
+    return render_template('index.html')
 
 @app.route('/mision')
 def mision():
-    return render_template('auth/mision.html')
+    return render_template('mision.html')
+
+@app.route('/index')
+def home():
+    return render_template('index.html')
+
+@app.route('/vendedores')
+def vendedores():
+    return render_template('vendedores.html')
+@app.route('/ventas')
+def ventas():
+    return render_template('ventas.html')
+@app.route('/productos')
+def productos():
+    return render_template('productos.html')
 
 
 # URL PARA EL LOGIN
@@ -62,13 +76,13 @@ def login():
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")
-                return render_template('auth/login.html')
+                return render_template('login.html')
         else:
             print("No se encontro usuario")
             flash("Usuario no encontrado")
-            return render_template('auth/login.html')
+            return render_template('login.html')
     else:
-        return render_template('auth/login.html')
+        return render_template('login.html')
 
 #___________________________________________
 
@@ -102,7 +116,7 @@ def register():
             return str(ex)
 
     else:
-        return render_template('auth/register.html')
+        return render_template('register.html')
 #--------------------
 
 # Redireccion para el cierre de sesion
@@ -151,7 +165,7 @@ def Home():
         sugeridos = ModelUser.get_no_amigos(db, current_user.id_usuario)
         publicaciones_amigos = ModelPublicaciones.get_publicaciones_amigos(db, current_user.id_usuario)
         all = ModelUser.get_all_users(db)
-        return render_template('auth/home.html', sugeridos=sugeridos, publicaciones_amigos=publicaciones_amigos, all = all)
+        return render_template('home.html', sugeridos=sugeridos, publicaciones_amigos=publicaciones_amigos, all = all)
 
 
 
@@ -210,7 +224,7 @@ def status_401(error):
 
 
 def status_404(error):
-    return "<h1> Pagino no encontrada </h1>", 404
+    return "<h1> Pagina no encontrada </h1>", 404
 
 
 if __name__ == '__main__':
