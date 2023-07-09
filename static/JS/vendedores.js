@@ -25,7 +25,7 @@ function generarVendedores() {
     vendedorDiv.id = "vendedor" + i;
 
     var icono = document.createElement("img");
-    icono.src = "icon/usuarioEjemplo.svg";
+    icono.src = "../static/IMAGE.SVG/usuarioEjemplo.svg";
     icono.alt = "salir";
     icono.className = "icono";
 
