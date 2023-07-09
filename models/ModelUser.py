@@ -12,7 +12,7 @@ class ModelUser():
             cursor.execute(sql)
             row = cursor.fetchone()
             if row != None:
-                return User(row[0], row[1], row[2], User.check_password(row[3], user.a_password), row[4], row[5],
+                return User(row[0], row[1], row[2], User.check_password(row[3], user.password), row[4], row[5],
                             row[6])
             else:
                 return None
