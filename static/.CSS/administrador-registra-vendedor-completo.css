@@ -1,0 +1,97 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url(../IMAGE.SVG/Fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column; /* Cambiamos la dirección de flex a columna */
+    align-items: flex-start; /* Alineamos los elementos a la izquierda */
+    min-height: 100vh;
+    overflow: hidden; /* Evita el desplazamiento vertical */
+}
+
+.contenedor {
+    width: 100%;
+    padding: 15px;
+    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+    margin-left: 200px; /* Ajusta el margen izquierdo según tus necesidades */
+}
+
+.formulario {
+    padding: 3px;
+    background-color: rgb(217, 191, 228);
+    height: 570px; /* Ajusta la altura del formulario según tus necesidades */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+    width: 80%; /* Ajusta el ancho del formulario según tus necesidades */
+    max-width: 400px; /* Ajusta el ancho máximo del formulario según tus necesidades */
+    margin-left: 10%; /* Ajusta el margen izquierdo según tus necesidades */
+}
+
+.input-contenedor {
+    margin-bottom: 20px; /* Ajusta el margen inferior según tus necesidades */
+    border: 1px solid #aaa;
+}
+
+.icon {
+    min-width: 50px;
+    text-align: center;
+    margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
+}
+
+.input-contenedor input[type="text"],
+.input-contenedor input[type="password"] {
+    flex: 1;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+}
+
+.boton-izquierda {
+    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+}
+
+.button2-container {
+    position: fixed;
+    top: 20px; /* Mueve el botón hacia arriba */
+    right: 20px; /* Mueve el botón hacia la derecha */
+    width: 20%;
+    z-index: 1;
+}
+
+.button2 {
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: rgb(162, 196, 162);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imagen-boton {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.imagen-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 80px; /* Ajusta el margen inferior según tus necesidades */
+}
+
+.imagen-vendedor {
+    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste automáticamente según el ancho */
+}
+.texto-contenedor {
+    margin-left: 120px; /* Ajusta el margen izquierdo según tus necesidades */
+    color: white;
+}
