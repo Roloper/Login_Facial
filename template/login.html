@@ -21,19 +21,34 @@
   
   <img class="image-4-rT9" src="../static/IMAGE.SVG/image-4-L55.png"/>
   
-  <form>
-  <input class="email-8vT" type="email" placeholder="Email">
-  <input class="password-ygB" type="password" placeholder="Password">
+  <form class="form-signin" action="/login" method="POST">
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    <br />
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% endwith %}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    
+    <input class="email-8vT" type="email" placeholder="Email" name="correo">
+    <input class="password-ygB" type="password" placeholder="Password" name="password">
+    <div class="iniciar-sesin-urf">
+      <button type="submit">Iniciar Sesión</button>
+    </div>
   </form>
   
   <img class="image-5-2eT" src="../static/IMAGE.SVG/image-5.png"/>
   <img class="image-6-8Bh" src="../static/IMAGE.SVG/image-6-4x7.png"/>
-  <div class="iniciar-sesin-urf">
-    <button>Iniciar Sesión</button>
-  </div>
   <div class="line-3-KfV">
   </div>
 </div>
-<script src="../static/JS/login.js"></script>
+<!--<script src="../static/JS/login.js"></script>-->
 </body>
 </html>

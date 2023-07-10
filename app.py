@@ -9,7 +9,7 @@ import os
 from datetime import datetime
 
 #Facial
-from Facial.facial import generate
+#from Facial.facial import generate
 
 # Models
 from models.ModelUser import ModelUser
@@ -47,7 +47,7 @@ def download_file(name):
 # URL PRINCIPAL
 @app.route('/')
 def index():
-    return render_template('login.html')
+    return redirect(url_for('login'))
 
 @app.route('/mision')
 def mision():
@@ -76,13 +76,13 @@ def video_feed():
 @app.route('/login', methods=['GET', 'POST'])  # persona o empresa
 def login():
     if request.method == 'POST':
-        user = User(0, 0, request.form['correo'], request.form['password'], 0)
+        user = User(1, 0, request.form['correo'], request.form['password'], 0)
         logged_user = ModelUser.login(db,user)
 
         if logged_user != None:
-            if logged_user.a_password:
+            if logged_user.password:
                 login_user(logged_user)
-                return redirect(url_for('Home'))
+                return redirect(url_for('home'))
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")
