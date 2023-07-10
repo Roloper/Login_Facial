@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url(../IMAGE.SVG/Fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .contenedor {
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .formulario {
+    padding: 3px;
+    background-color: rgb(217, 191, 228);
+    height: 570px; /* Ajusta la altura del formulario según tus necesidades */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  h1 {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin-bottom: 70px;
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    font-size: 20px;
+    width: 82%;
+    padding: 10px;
+    border: none;
+  }
+  
+  .input-contenedor {
+    margin-bottom: 15px;
+    border: 1px solid #aaa;
+  }
+  
+  .icon {
+    min-width: 50px;
+    text-align: center;
+  }
+  
+  .button1 {
+    border: none;
+    width: 50%;
+    color: white;
+    font-size: 20px;
+    background: rgb(104, 41, 41);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 50px;
+    margin-bottom: 20px; /* Agregado para crear un espacio entre los botones */
+  }
+  
+  .button2-container {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 20%;
+    z-index: 1;
+  }
+  
+  .button2 {
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: rgb(162, 196, 162);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  @media (min-width: 768px) {
+    .formulario {
+      width: 500px;
+      border-radius: 2%;
+    }
+  }
+  
+  .button1-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .button-container {
+    position: relative;
+  }
+  
+  .mensaje-exito {
+    color: green;
+    font-size: 20px;
+    margin-top: 5px; /* Ajusta el margen superior según tus necesidades */
+    text-align: center;
+    position: absolute;
+    bottom: 125px; /* Ajusta el valor negativo para subir el mensaje */
+    left: 0;
+    width: 100%;
+  }
+  .boton-izquierda {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+  }
+  
+  .imagen-boton {
+    width: 50px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* Permite que la altura se ajuste automáticamente según el ancho */
+    cursor: pointer;
+  }
