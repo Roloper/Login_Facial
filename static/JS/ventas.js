@@ -1,4 +1,4 @@
-var admin = true;
+var admin = false;
 
 function tipodeRol() {
   var rolUser = document.getElementById("rolUser");
