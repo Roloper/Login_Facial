@@ -1,0 +1,135 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background: url(../IMAGE.SVG/Fondo.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+
+.formulario {
+    padding: 3px;
+    background-color: rgb(217, 191, 228);
+    height: 570px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: 21.2%;
+    border-radius: 10%;
+}
+
+.input-contenedor {
+    margin-bottom: 20px;
+    border: 1px solid #aaa;
+}
+
+.icon {
+    min-width: 50px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.input-contenedor input[type="text"],
+.input-contenedor input[type="password"] {
+    flex: 1;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+}
+
+.boton-izquierda {
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.button2-container {
+    position: fixed;
+    top: 40px;
+    right: 50px;
+    width: 13%;
+    z-index: 1;
+}
+
+.button2 {
+    border: none;
+    width: 100%;
+    color: white;
+    font-size: 20px;
+    background: rgb(104, 41, 41);
+    padding: 15px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.imagen-boton {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+}
+
+.imagen-contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.imagen-vendedor {
+    width: 200px;
+    height: auto;
+}
+
+.texto-contenedor {
+    margin-left: 250px;
+    margin-bottom: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 725px;
+    height: 111px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.rectangulo_fondo{
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 650px;
+    flex-shrink: 0;
+    background-color: rgba(217, 217, 217, 0.15);
+    border-radius: 10%;
+
+}
+
+.imagen{
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 550px;
+    background: #D9D9D9;
+        border-radius: 10%;
+    flex-shrink: 0;
+
+}
+
+.imagen img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
