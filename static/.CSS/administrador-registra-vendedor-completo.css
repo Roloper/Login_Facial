@@ -5,41 +5,36 @@ body {
     background-size: cover;
     background-attachment: fixed;
     display: flex;
-    flex-direction: column; /* Cambiamos la dirección de flex a columna */
-    align-items: flex-start; /* Alineamos los elementos a la izquierda */
+    flex-direction: column;
+    align-items: flex-start;
     min-height: 100vh;
-    overflow: hidden; /* Evita el desplazamiento vertical */
+    overflow: hidden;
 }
 
-.contenedor {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
-    margin-left: 200px; /* Ajusta el margen izquierdo según tus necesidades */
-}
 
 .formulario {
     padding: 3px;
     background-color: rgb(217, 191, 228);
-    height: 570px; /* Ajusta la altura del formulario según tus necesidades */
+    height: 570px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
-    width: 80%; /* Ajusta el ancho del formulario según tus necesidades */
-    max-width: 400px; /* Ajusta el ancho máximo del formulario según tus necesidades */
-    margin-left: 10%; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-top: 20px;
+    width: 80%;
+    max-width: 400px;
+    margin-left: 21.2%;
+    border-radius: 10%;
 }
 
 .input-contenedor {
-    margin-bottom: 20px; /* Ajusta el margen inferior según tus necesidades */
+    margin-bottom: 20px;
     border: 1px solid #aaa;
 }
 
 .icon {
     min-width: 50px;
     text-align: center;
-    margin-right: 10px; /* Ajusta el margen derecho según tus necesidades */
+    margin-right: 10px;
 }
 
 .input-contenedor input[type="text"],
@@ -51,15 +46,15 @@ body {
 }
 
 .boton-izquierda {
-    margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
-    margin-left: 20px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-top: 20px;
+    margin-left: 20px;
 }
 
 .button2-container {
     position: fixed;
-    top: 20px; /* Mueve el botón hacia arriba */
-    right: 20px; /* Mueve el botón hacia la derecha */
-    width: 20%;
+    top: 40px;
+    right: 50px;
+    width: 13%;
     z-index: 1;
 }
 
@@ -68,7 +63,7 @@ body {
     width: 100%;
     color: white;
     font-size: 20px;
-    background: rgb(162, 196, 162);
+    background: rgb(104, 41, 41);
     padding: 15px 20px;
     border-radius: 10px;
     cursor: pointer;
@@ -84,14 +79,57 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 80px; /* Ajusta el margen inferior según tus necesidades */
+    margin-bottom: 80px;
 }
 
 .imagen-vendedor {
-    width: 200px; /* Ajusta el ancho de la imagen según tus necesidades */
-    height: auto; /* Permite que la altura se ajuste automáticamente según el ancho */
+    width: 200px;
+    height: auto;
 }
+
 .texto-contenedor {
-    margin-left: 120px; /* Ajusta el margen izquierdo según tus necesidades */
+    margin-left: 250px;
+    margin-bottom: 10px;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 725px;
+    height: 111px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.rectangulo_fondo{
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 550px;
+    height: 650px;
+    flex-shrink: 0;
+    background-color: rgba(217, 217, 217, 0.15);
+    border-radius: 10%;
+
+}
+
+.imagen{
+    position: absolute;
+    left: 75%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    height: 550px;
+    background: #D9D9D9;
+        border-radius: 10%;
+    flex-shrink: 0;
+
+}
+
+.imagen img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
