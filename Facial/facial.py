@@ -5,14 +5,14 @@ from Facial.entrenandoRF import train_face_recognizer
 cap = cv2.VideoCapture(0)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
      "haarcascade_frontalface_default.xml")
-face_recognizer = cv2.face.LBPHFaceRecognizer_create()
-face_recognizer.read('modeloLBPHFace.xml')
 
 dataPath = './Data'
 imagePaths = os.listdir(dataPath)
 nom = ''
 
 def generate():
+    face_recognizer = cv2.face.LBPHFaceRecognizer_create()
+    face_recognizer.read('modeloLBPHFace.xml')
     imagePaths = os.listdir(dataPath)
     while True:
         ret, frame = cap.read()
