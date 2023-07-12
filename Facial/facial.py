@@ -2,6 +2,7 @@ import cv2
 import os
 from Facial.entrenandoRF import train_face_recognizer
 
+
 cap = cv2.VideoCapture(0)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
      "haarcascade_frontalface_default.xml")
@@ -20,6 +21,7 @@ def generate():
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             auxFrame = gray.copy()
             faces = face_detector.detectMultiScale(gray, 1.3, 5)
+            x, y, w, h = 0, 0, 0, 0
             for (x, y, w, h) in faces:
                 rostro = auxFrame[y:y + h, x:x + w]
                 rostro = cv2.resize(rostro, (150, 150), interpolation=cv2.INTER_CUBIC)
@@ -35,9 +37,10 @@ def generate():
 
             (flag, encodedImage) = cv2.imencode(".jpg", frame)
             if not flag:
-                continue        
+                continue
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
                    bytearray(encodedImage) + b'\r\n')
+
 
 
 def register(personName):

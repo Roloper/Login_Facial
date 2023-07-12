@@ -26,7 +26,7 @@ app = Flask(__name__, template_folder='template')
 csrf = CSRFProtect()
 
 db = MySQL(app)
-
+nom = ''
 login_manager_app = LoginManager(app)
 app.config['UPLOAD_FOLDER'] = 'static/img'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'NEF'}
@@ -55,7 +55,7 @@ def mision():
     return render_template('mision.html')
 
 @app.route('/index')
-def home():
+def home_admin():
     return render_template('index.html')
 
 @app.route('/vendedores')
@@ -68,33 +68,51 @@ def ventas():
 def productos():
     return render_template('productos.html')
 
+@app.route('/grabar-cara')
+def grabarCara():
+    return render_template('grabar_cara.html')
+
+@app.route('/registro-completo')
+def registroCompletoCara():
+    return render_template('administrador-registra-vendedor-completo.html')
+
 @app.route('/registro-vendedor')
 def registroVendedor():
     return render_template('administrador-registra-vendedor.html')
+
+@app.route('/verificacion')
+def verificacion():
+    return render_template('verificacion.html')
+
+@app.route('/indexUsuario')
+def home_ven():
+    return render_template('indexUsuario.html')
 
 @app.route("/video_feed")
 def video_feed():
      return Response(facial.generate(),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
 
+
 @app.route("/video_register")
-def video_feed():
-     return Response(facial.register(),
+def video_register():
+     global nom
+     return Response(facial.register(nom),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
-
-
 
 # URL PARA EL LOGIN
 @app.route('/login', methods=['GET', 'POST'])  # persona o empresa
 def login():
     if request.method == 'POST':
-        user = User(1, 0, request.form['correo'], request.form['password'], 0)
+        user = User(0, 0, request.form['correo'], request.form['password'], 0)
         logged_user = ModelUser.login(db,user)
-
         if logged_user != None:
+            if logged_user.password and (logged_user.admin == True):
+                login_user(logged_user)
+                return redirect(url_for('home_admin'))
             if logged_user.password:
                 login_user(logged_user)
-                return redirect(url_for('home'))
+                return redirect(url_for('verificacion'))
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")
