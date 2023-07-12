@@ -2,10 +2,10 @@ CREATE TABLE Usuario (
   id_usuario INT PRIMARY KEY AUTO_INCREMENT,
   Nombre VARCHAR(100),
   correo VARCHAR(100),
-  contrasena VARCHAR(100),
+  contrasena VARCHAR(102),
   admin BOOLEAN DEFAULT FALSE,
   imagen_perfil BLOB DEFAULT NULL,
-  imagen_test BLOB DEFAULT NULL
+  imagen_test VARCHAR(1000) DEFAULT NULL
 );
 
 CREATE TABLE Venta (

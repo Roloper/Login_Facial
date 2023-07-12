@@ -20,6 +20,7 @@ def generate():
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
             auxFrame = gray.copy()
             faces = face_detector.detectMultiScale(gray, 1.3, 5)
+            x, y, w, h = 0, 0, 0, 0
             for (x, y, w, h) in faces:
                 rostro = auxFrame[y:y + h, x:x + w]
                 rostro = cv2.resize(rostro, (150, 150), interpolation=cv2.INTER_CUBIC)
