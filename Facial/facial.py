@@ -7,6 +7,7 @@ face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
      "haarcascade_frontalface_default.xml")
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 face_recognizer.read('modeloLBPHFace.xml')
+
 dataPath = './Data'
 imagePaths = os.listdir(dataPath)
 nom = ''
