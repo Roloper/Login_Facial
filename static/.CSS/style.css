@@ -221,7 +221,6 @@ background: linear-gradient(90deg, rgba(98,143,157,1) 0%, rgba(147,198,214,1) 28
     justify-content: center;
 }
 .contCuadro{
-    display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: #CAD7DB;

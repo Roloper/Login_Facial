@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-from Facial import facial
+#from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -54,7 +54,21 @@ def index():
 
 @app.route('/index')
 def home_admin():
-    return render_template('index.html')
+    cur = db.connection.cursor()
+
+    cur.execute("SELECT * FROM usuario WHERE admin = 0")
+
+    vendedores = cur.fetchall()
+
+    print(cur)
+
+    insertObject = []
+    columnNames = [column[0] for column in cur.description]
+    for record in vendedores:
+        insertObject.append(dict(zip(columnNames, record)))
+    cur.close()
+
+    return render_template('index.html', vendedores = insertObject)
 
 @app.route('/vendedores')
 def vendedores():
