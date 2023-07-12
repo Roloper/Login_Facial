@@ -7,9 +7,10 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
+from Facial import facial
 
 #Facial
-from Facial.facial import generate
+#from Facial.facial import generate
 
 # Models
 from models.ModelUser import ModelUser
@@ -47,7 +48,7 @@ def download_file(name):
 # URL PRINCIPAL
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect(url_for('login'))
 
 @app.route('/mision')
 def mision():
@@ -67,22 +68,33 @@ def ventas():
 def productos():
     return render_template('productos.html')
 
+@app.route('/registro-vendedor')
+def registroVendedor():
+    return render_template('administrador-registra-vendedor.html')
+
 @app.route("/video_feed")
 def video_feed():
-     return Response(generate(),
+     return Response(facial.generate(),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+@app.route("/video_register")
+def video_feed():
+     return Response(facial.register(),
+          mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+
 
 # URL PARA EL LOGIN
 @app.route('/login', methods=['GET', 'POST'])  # persona o empresa
 def login():
     if request.method == 'POST':
-        user = User(0, 0, request.form['correo'], request.form['password'], 0)
+        user = User(1, 0, request.form['correo'], request.form['password'], 0)
         logged_user = ModelUser.login(db,user)
 
         if logged_user != None:
-            if logged_user.a_password:
+            if logged_user.password:
                 login_user(logged_user)
-                return redirect(url_for('Home'))
+                return redirect(url_for('home'))
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")

@@ -11,7 +11,10 @@ class User(UserMixin):
         self.admin = admin
         self.imagen_perfil = imagen_perfil
         self.imagen_test = imagen_test
-
+    
+    def get_id(self):
+        return str(self.id_usuario)
+    
     @classmethod
     def check_password(self, hashed_password, password):
         return check_password_hash(hashed_password, password)

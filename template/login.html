@@ -8,32 +8,47 @@
   <title>Login</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Darker+Grotesque%3A400"/>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400"/>
-  <link rel="stylesheet" href="./static/.CSS/login.css"/>
+  <link rel="stylesheet" href="../static/.CSS/login.css"/>
 </head>
 <body>
 <div class="login-HXD">
   <div class="rectangle-10-o8B">
   </div>
-  <div class="rectangle-11-tas">
-  </div>
-  <div class="iniciar-sesin-9mh">Iniciar Sesión</div>
-  <div class="line-1-tco">
-  </div>
+  
+
   <div class="line-2-Nns">
   </div>
-  <img class="image-4-rT9" src="./assets/image-4-L55.png"/>
-  <div class="email-8vT">Email</div>
-  <div class="password-ygB">Password</div>
-  <img class="image-5-2eT" src="./assets/image-5.png"/>
-  <img class="image-6-8Bh" src="./assets/image-6-4x7.png"/>
-  <div class="rectangle-12-d8T">
-  </div>
-  <div class="iniciar-sesin-urf">Iniciar Sesión</div>
+  
+  <img class="image-4-rT9" src="../static/IMAGE.SVG/image-4-L55.png"/>
+  
+  <form class="form-signin" action="/login" method="POST">
+    {% with messages = get_flashed_messages() %}
+
+    {% if messages %}
+    <br />
+    {% for message in messages %}
+    <div class="alert alert-primary alert-dismissible" role="alert">
+        <strong>{{ message }}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+
+    {% endwith %}
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+    
+    <input class="email-8vT" type="email" placeholder="Email" name="correo">
+    <input class="password-ygB" type="password" placeholder="Password" name="password">
+    <div class="iniciar-sesin-urf">
+      <button type="submit">Iniciar Sesión</button>
+    </div>
+  </form>
+  
+  <img class="image-5-2eT" src="../static/IMAGE.SVG/image-5.png"/>
+  <img class="image-6-8Bh" src="../static/IMAGE.SVG/image-6-4x7.png"/>
   <div class="line-3-KfV">
   </div>
-  <div class="line-4-xyM">
-  </div>
-  <div class="password-fcs">Password</div>
-  <img class="image-7-jsd" src="./assets/image-7.png"/>
 </div>
+  <!--<script src="../static/JS/login.js"></script>-->
 </body>
+</html>
