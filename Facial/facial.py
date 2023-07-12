@@ -2,6 +2,7 @@ import cv2
 import os
 from Facial.entrenandoRF import train_face_recognizer
 
+
 cap = cv2.VideoCapture(0)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
      "haarcascade_frontalface_default.xml")
@@ -36,9 +37,10 @@ def generate():
 
             (flag, encodedImage) = cv2.imencode(".jpg", frame)
             if not flag:
-                continue        
+                continue
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
                    bytearray(encodedImage) + b'\r\n')
+
 
 
 def register(personName):

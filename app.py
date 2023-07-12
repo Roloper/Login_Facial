@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-#from Facial import facial
+from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -80,14 +80,19 @@ def registroCompletoCara():
 def registroVendedor():
     return render_template('administrador-registra-vendedor.html')
 
+@app.route('/verificacion')
+def verificacion():
+    return render_template('verificacion.html')
+
 @app.route('/indexUsuario')
 def home_ven():
-    return render_template('indexUsuariohtml')
+    return render_template('indexUsuario.html')
 
 @app.route("/video_feed")
 def video_feed():
      return Response(facial.generate(),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
+
 
 @app.route("/video_register")
 def video_register():
@@ -107,7 +112,7 @@ def login():
                 return redirect(url_for('home_admin'))
             if logged_user.password:
                 login_user(logged_user)
-                return redirect(url_for('home_ven'))
+                return redirect(url_for('verificacion'))
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")
