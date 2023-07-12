@@ -7,6 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
+from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -69,7 +70,12 @@ def productos():
 
 @app.route("/video_feed")
 def video_feed():
-     return Response(generate(),
+     return Response(facial.generate(),
+          mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+@app.route("/video_register")
+def video_feed():
+     return Response(facial.register(),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
 
 # URL PARA EL LOGIN

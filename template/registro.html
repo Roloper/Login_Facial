@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" href="/favicon.ico" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#000000" />
+        <title>Verificacion</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Darker+Grotesque%3A400"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400"/>
+        <link rel="stylesheet" href="../static/.CSS/video.css"/>
+
+    </head>
+    <body>
+        <div class="fondo">
+        <div class="atras">
+            <img src="../static/IMAGE.SVG/flecha.png" class="atras" id="imgAtras">
+        </div>
+        <div class="container">
+            <img src="{{ url_for('video_feed') }}" class="img-fluid">
+            <p></p>
+        </div>
+        <div class="button-container">
+            <button onclick="window.location.href = '{{ url_for('registrar') }}';" class="btnVerificacion">Iniciar Registro</button>
+        </div>
+        <div>
+        <button id="btnAcceso" class="btnAcceso">Finalizar</button>
+        </div>
+        <script>
+            // Obtener la referencia a la imagen "atras" por su id
+            var imgAtras = document.getElementById("imgAtras");
+        
+            // Agregar un evento de clic a la imagen
+            imgAtras.addEventListener("click", function() {
+                // Redirigir al usuario a la página de inicio de sesión
+                window.location.href = "administrador-registra-vendedor-completo.html";
+            });
+        </script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+        </div> 
+    </body>
+</html>
