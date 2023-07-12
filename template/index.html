@@ -41,28 +41,35 @@
             <div class="rol">
                 <p>Administrador</p>
             </div>
-            <div class="salir" >
-                <img src="../static/IMAGE.SVG/salir.svg" alt="salir">
-            </div>
+            <a href="login">
+                <div class="salir" >
+                    <img src="../static/IMAGE.SVG/salir.svg" alt="salir">
+                </div>
+            </a>
         </div>
         
     </div>
     <div class="contenido">
         <div class="cuadro">
             <div class="tituloCuadro">
-              <h2>SESIONES ACTIVAS RECIENTES</h2>
+                <h2>SESIONES ACTIVAS RECIENTES</h2>
             </div>
-            <!--Vendedores-->
-            <div class = "contCuadro">
-                {% for vendedor in vendedores %}
-                    <div class="vendedor">
-                        {{vendedor.Nombre}}
-                        {{vendedor.correo}}
-                    </div>
-                {% endfor %}
+            <div class="contCuadro">
+              <table style="width: 100%">
+                    <tr class="sesion">
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                    </tr>
+                    {% for vendedor in vendedores %}
+                        <tr class="sesion odd">
+                            <td>{{vendedor.Nombre}}</td>
+                            <td>{{vendedor.correo}}</td>
+                        </tr>
+                    {% endfor %}
+              </table>
             </div>
         </div>
-          
+
         <div class="cuadro">
             <div class="tituloCuadro">
               <h2>VENTAS RECIENTES</h2>

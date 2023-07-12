@@ -3,36 +3,35 @@
     height: 100%;
     margin:0px;
     margin-top: 0px;
-  }
+}
 
-  table,th,td{
-      border: 2px solid black;
+table/*,th,td*/{
+      border: 0px solid black;
       border-collapse: collapse;
       background-color: #FFF;
-  }
+}
 
-  th,td{
+  /*th,td{
       padding: 10px; 
       text-align: center;
       border-radius: 10px;
-  }
-  a{
+  }*/
+a{
     text-decoration: none;
     color: rgb(255, 255, 255);
     cursor: pointer;
-  }
+}
 
-  img{
+img{
     -webkit-user-drag: none;
-  }
+}
 
-  .contCuadro::-webkit-scrollbar {
+.contCuadro::-webkit-scrollbar {
     width: 13px;  
-    
-  }
+}
   
   
-  .contCuadro::-webkit-scrollbar-thumb {
+.contCuadro::-webkit-scrollbar-thumb {
     background-color: rgb(210, 210, 212);
     border-radius: 20px;   
     border: 3px solid rgb(175, 173, 173); 
@@ -257,5 +256,46 @@ background: linear-gradient(90deg, rgba(98,143,157,1) 0%, rgba(147,198,214,1) 28
     height: 100%;
 
 }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+.sesiones-activas {
+    background-color: adb5bd;
+    width: 50%;
+    height: 85vh;
+    text-align: center;
+    border-radius: 1em;
+}
+  
+.sesion {
+    background-color: #edf2f4;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #dee2e6;
+}
+  
+.tittle {
+    margin-bottom: 1em;
+}
+.odd {
+    background-color: #ced4da !important;
+}
 
+.sesion-info {
+
+}
+.sesion > td,th {
+    flex: 1 1 auto;
+    position: relative;
+    text-align: center;
+}
+  
 

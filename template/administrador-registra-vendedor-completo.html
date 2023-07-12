@@ -26,15 +26,15 @@
             </div>
             <div class="input-contenedor">
                 <i class="fas fa-user icon"></i>
-                <input type="text" id="nombreInput" readonly>
+                <input type="text" id="nombreInput" readonly value="{{ nuevoRegistro['Nombre'] }}">
             </div>
             <div class="input-contenedor">
                 <i class="fas fa-envelope icon"></i>
-                <input type="text" id="emailInput"  readonly>
+                <input type="text" id="emailInput"  readonly value="{{ nuevoRegistro['correo'] }}">
             </div>
             <div class="input-contenedor">
                 <i class="fas fa-lock icon"></i>
-                <input type="password" id="passwordInput" readonly>
+                <input type="password" id="passwordInput" readonly value="{{ nuevoRegistro['contrasena'] }}">
             </div>  
         </form>
         <a href="index">

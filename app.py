@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-from Facial import facial
+#from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -52,7 +52,7 @@ def index():
 
 #RUTAS ADMINISTRADOR
 
-@app.route('/index')
+@app.route('/index', methods=['GET'])
 def home_admin():
     cur = db.connection.cursor()
 
@@ -102,9 +102,23 @@ def registroVendedor():
 def grabarCara():
     return render_template('grabar_cara.html')
 
-@app.route('/registro-completo')
+@app.route('/registro-completo', methods = ['GET'])
 def registroCompletoCara():
-    return render_template('administrador-registra-vendedor-completo.html')
+    
+    cur = db.connection.cursor()
+
+    cur.execute("SELECT * FROM usuario ORDER BY id_usuario DESC LIMIT 1")
+
+    nuevoRegistro = cur.fetchone()
+    
+    
+    columnNames = [column[0] for column in cur.description]
+    
+    cur.close()
+
+    insertObject = dict(zip(columnNames, nuevoRegistro))
+    
+    return render_template('administrador-registra-vendedor-completo.html', nuevoRegistro = insertObject)
 
 
 #RUTAS VENDEDORES
