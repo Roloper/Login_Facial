@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-#from Facial import facial
+from Facial import facial
 
 #Facial
 #from Facial.facial import generate

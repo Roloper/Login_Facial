@@ -2,18 +2,17 @@ import cv2
 import os
 from Facial.entrenandoRF import train_face_recognizer
 
-
 cap = cv2.VideoCapture(0)
 face_detector = cv2.CascadeClassifier(cv2.data.haarcascades +
      "haarcascade_frontalface_default.xml")
-face_recognizer = cv2.face.LBPHFaceRecognizer_create()
-face_recognizer.read('modeloLBPHFace.xml')
 
 dataPath = './Data'
 imagePaths = os.listdir(dataPath)
 nom = ''
 
 def generate():
+    face_recognizer = cv2.face.LBPHFaceRecognizer_create()
+    face_recognizer.read('modeloLBPHFace.xml')
     imagePaths = os.listdir(dataPath)
     while True:
         ret, frame = cap.read()
@@ -22,12 +21,13 @@ def generate():
             auxFrame = gray.copy()
             faces = face_detector.detectMultiScale(gray, 1.3, 5)
             x, y, w, h = 0, 0, 0, 0
+            result = None
             for (x, y, w, h) in faces:
                 rostro = auxFrame[y:y + h, x:x + w]
                 rostro = cv2.resize(rostro, (150, 150), interpolation=cv2.INTER_CUBIC)
                 result = face_recognizer.predict(rostro)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
-            if imagePaths and isinstance(result[0], int) and 0 <= result[0] < len(imagePaths):
+            if result is not None and isinstance(result[0], int) and 0 <= result[0] < len(imagePaths):
                 cv2.putText(frame, '{}'.format(imagePaths[result[0]]), (x, y - 25), 2, 1.1, (0, 255, 0), 1,
                             cv2.LINE_AA)
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -40,8 +40,6 @@ def generate():
                 continue
             yield (b'--frame\r\n' b'Content-Type: image/jpeg\r\n\r\n' +
                    bytearray(encodedImage) + b'\r\n')
-
-
 
 def register(personName):
     print("inicio register")
