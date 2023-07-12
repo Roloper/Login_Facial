@@ -68,6 +68,10 @@ def ventas():
 def productos():
     return render_template('productos.html')
 
+@app.route('/registro-vendedor')
+def registroVendedor():
+    return render_template('administrador-registra-vendedor.html')
+
 @app.route("/video_feed")
 def video_feed():
      return Response(facial.generate(),
@@ -77,6 +81,8 @@ def video_feed():
 def video_feed():
      return Response(facial.register(),
           mimetype = "multipart/x-mixed-replace; boundary=frame")
+
+
 
 # URL PARA EL LOGIN
 @app.route('/login', methods=['GET', 'POST'])  # persona o empresa
