@@ -6,7 +6,7 @@ class DevelopmentConfig(Config):
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = ''
-    MYSQL_DB = 'bd_loginfacial'
+    MYSQL_DB = 'facial'
 config ={
     'development' : DevelopmentConfig
 }

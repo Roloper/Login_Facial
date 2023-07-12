@@ -10,6 +10,24 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro%3A400"/>
         <link rel="stylesheet" href="../static/.CSS/video.css"/>
 
+        <script>
+            // Función para habilitar el botón de acceso
+            function enableAccessButton() {
+                var accessButton = document.getElementById("btnAcceso");
+                accessButton.disabled = false;
+            }
+        
+            // Función para deshabilitar el botón de acceso
+            function disableAccessButton() {
+                var accessButton = document.getElementById("btnAcceso");
+                accessButton.disabled = true;
+            }
+        
+            // Función para redirigir al usuario a la página de inicio de sesión
+            function redirectToLogin() {
+                window.location.href = "login.html";
+            }
+        </script>
     </head>
     <body>
         <div class="fondo">
@@ -19,28 +37,74 @@
                 </div>
             </a>
 
-        <div class="container">
-            <img src="{{ url_for('video_feed') }}" class="img-fluid">
-            <p></p>
+            <div class="container">
+                <img src="{{ url_for('video_feed') }}" class="img-fluid">
+                <p></p>
+            </div>
+            <div>
+                <a href="indexUsuario">
+                    <button id="btnAcceso" class="btnAcceso" disabled>Acceso</button>
+                </a>
+            </div>
         </div>
-        <div>
-            <a href="indexUsuario">
-                <button id="btnAcceso" class="btnAcceso">Acceso</button>
-            </a>
-        
-        </div>
+
         <script>
             // Obtener la referencia a la imagen "atras" por su id
             var imgAtras = document.getElementById("imgAtras");
         
             // Agregar un evento de clic a la imagen
-            imgAtras.addEventListener("click", function() {
-                // Redirigir al usuario a la página de inicio de sesión
-                window.location.href = "login.html";
-            });
+            imgAtras.addEventListener("click", redirectToLogin);
+
+            // Iniciar el generador de video
+            var videoGenerator = startVideoGenerator();
+
+            // Variable para almacenar el estado de la detección de rostros
+            var faceDetected = false;
+
+            // Función para iniciar el generador de video
+            function startVideoGenerator() {
+                var videoElement = document.querySelector(".img-fluid");
+
+                function processFrame() {
+                    // Capturar la imagen actual del video
+                    var canvas = document.createElement("canvas");
+                    var context = canvas.getContext("2d");
+                    context.drawImage(videoElement, 0, 0, canvas.width, canvas.height);
+                    var imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+
+                    // Obtener los datos de la imagen en un formato adecuado para el análisis
+                    var data = new Uint8Array(imageData.data.buffer);
+
+                    // Realizar el análisis de detección de rostros
+                    faceDetected = detectFaces(data, canvas.width, canvas.height);
+
+                    // Habilitar o deshabilitar el botón de acceso según la detección de rostros
+                    if (faceDetected) {
+                        enableAccessButton();
+                    } else {
+                        disableAccessButton();
+                    }
+
+                    // Continuar el procesamiento de los siguientes fotogramas
+                    requestAnimationFrame(processFrame);
+                }
+
+                // Iniciar el procesamiento de los fotogramas del video
+                processFrame();
+            }
+
+            // Función para realizar el análisis de detección de rostros
+            function detectFaces(imageData, width, height) {
+                // TODO: Agregar aquí el código para detectar rostros en la imagen
+
+                // Devolver un valor de prueba aleatorio (true o false)
+                return Math.random() < 0.5;
+            }
+
+            // Deshabilitar el botón de acceso al cargar la página
+            disableAccessButton();
         </script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
-        </div> 
     </body>
 </html>
