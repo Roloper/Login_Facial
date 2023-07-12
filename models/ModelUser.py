@@ -41,10 +41,10 @@ class ModelUser():
         try:
             cursor = db.connection.cursor()
 
-            sql = """INSERT INTO usuario(a_name, a_username, a_password, a_email, a_descripcion, a_celular, a_ubicacion, a_imagenperfil) 
-                     VALUES('{}', '{}', '{}', '{}', '{}', '{}', '{}', '{}')""".format(
-                user.a_name, user.a_username, user.a_password, user.a_email, user.a_descripcion, user.a_celular,
-                user.a_ubicacion, user.a_imagenperfil)
+            sql = """INSERT INTO usuario(Nombre, correo,contrasena,
+                        admin, imagen_perfil, imagen_test) 
+                         VALUES('{}', '{}', '{}', '{}', '{}','{}')""".format(
+                user.nombre, user.correo, user.password, user.admin, user.imagen_perfil, user.imagen_test)
             cursor.execute(sql)
             db.connection.commit()
             return True

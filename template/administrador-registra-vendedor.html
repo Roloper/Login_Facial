@@ -14,32 +14,32 @@
         </div>
     </a>
     
- <form class="formulario">
-    
+ <form class="formulario" action="/registro-vendedor" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <h1>Registrar Nuevo Vendedor</h1>
      <div class="contenedor">
      
      <div class="input-contenedor">
          <i class="fas fa-user icon"></i>
-         <input type="text" id="nombreInput" placeholder="Nombre Completo">
+         <input type="text" id="nombreInput" placeholder="nombre" name="nombre">
          
          </div>
          
          <div class="input-contenedor">
          <i class="fas fa-envelope icon"></i>
-         <input type="text" id="emailInput" placeholder="Email">
+         <input type="text" id="emailInput" placeholder="correo" name="correo">
          
          </div>
          
          <div class="input-contenedor">
         <i class="fas fa-lock icon"></i>
-        <input type="password" id="passwordInput" placeholder="Password">
+        <input type="password" id="passwordInput" placeholder="password" name="password">
          
          </div>
-         <div class="button1-container">
-            <input type="submit" value="Guardar" class="button1" id="guardarButton"> 
-            <p id="mensajeExito" class="mensaje-exito"></p>     
-          </div>     
+         <div class="button1-container" >
+            <button type="submit"class="btn btn-primary">Guardar</button>
+            <p id="mensajeExito" class="mensaje-exito"></p>
+        </div>
      </div>
     </form>
     <a href="grabar-cara">

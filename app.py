@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-#from Facial import facial
+from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -74,9 +74,29 @@ def home_admin():
 def vendedores():
     return render_template('vendedores.html')
 
-@app.route('/registro-vendedor')
+
+@app.route('/registro-vendedor', methods=['GET', 'POST'])
 def registroVendedor():
-    return render_template('administrador-registra-vendedor.html')
+    global nom
+    if request.method == 'POST':
+        nom = request.form['nombre']
+        dataPath = './Data'
+        personPath = dataPath + '/' + request.form['nombre']
+        if not os.path.exists(personPath):
+            print('Carpeta creada:', personPath)
+            os.makedirs(personPath)
+        print("----bien post")
+        print(request.form['nombre'] + request.form['correo'] + request.form['password'])
+        user = User(None, request.form['nombre'], request.form['correo'], User.hash_password(request.form['password']),
+                    0, None, personPath)
+        try:
+            ModelUser.register(db, user)
+            return render_template('grabar_cara.html')
+        except Exception as ex:
+            return str(ex)
+    else:
+        return render_template('administrador-registra-vendedor.html')
+
 
 @app.route('/grabar-cara')
 def grabarCara():
