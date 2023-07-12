@@ -50,9 +50,7 @@ def download_file(name):
 def index():
     return redirect(url_for('login'))
 
-@app.route('/mision')
-def mision():
-    return render_template('mision.html')
+#RUTAS ADMINISTRADOR
 
 @app.route('/index')
 def home_admin():
@@ -61,12 +59,10 @@ def home_admin():
 @app.route('/vendedores')
 def vendedores():
     return render_template('vendedores.html')
-@app.route('/ventas')
-def ventas():
-    return render_template('ventas.html')
-@app.route('/productos')
-def productos():
-    return render_template('productos.html')
+
+@app.route('/registro-vendedor')
+def registroVendedor():
+    return render_template('administrador-registra-vendedor.html')
 
 @app.route('/grabar-cara')
 def grabarCara():
@@ -76,9 +72,8 @@ def grabarCara():
 def registroCompletoCara():
     return render_template('administrador-registra-vendedor-completo.html')
 
-@app.route('/registro-vendedor')
-def registroVendedor():
-    return render_template('administrador-registra-vendedor.html')
+
+#RUTAS VENDEDORES
 
 @app.route('/verificacion')
 def verificacion():
@@ -87,6 +82,22 @@ def verificacion():
 @app.route('/indexUsuario')
 def home_ven():
     return render_template('indexUsuario.html')
+
+@app.route('/ventas')
+def ventas():
+    return render_template('ventas.html')
+
+@app.route('/productos')
+def productos():
+    return render_template('productos.html')
+
+
+@app.route('/mision')
+def mision():
+    return render_template('mision.html')
+
+
+#RUTAS VIDEO
 
 @app.route("/video_feed")
 def video_feed():
