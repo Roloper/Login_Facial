@@ -55,7 +55,7 @@ def mision():
     return render_template('mision.html')
 
 @app.route('/index')
-def home():
+def home_admin():
     return render_template('index.html')
 
 @app.route('/vendedores')
@@ -80,6 +80,10 @@ def registroCompletoCara():
 def registroVendedor():
     return render_template('administrador-registra-vendedor.html')
 
+@app.route('/indexUsuario')
+def home_ven():
+    return render_template('indexUsuariohtml')
+
 @app.route("/video_feed")
 def video_feed():
      return Response(facial.generate(),
@@ -98,9 +102,12 @@ def login():
         user = User(0, 0, request.form['correo'], request.form['password'], 0)
         logged_user = ModelUser.login(db,user)
         if logged_user != None:
+            if logged_user.password and (logged_user.admin == True):
+                login_user(logged_user)
+                return redirect(url_for('home_admin'))
             if logged_user.password:
                 login_user(logged_user)
-                return redirect(url_for('home'))
+                return redirect(url_for('home_ven'))
             else:
                 print("contra incorrecta")
                 flash("Contraseña Incorrecta")
