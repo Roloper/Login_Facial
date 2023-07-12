@@ -7,7 +7,7 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
-from Facial import facial
+#from Facial import facial
 
 #Facial
 #from Facial.facial import generate
@@ -67,6 +67,14 @@ def ventas():
 @app.route('/productos')
 def productos():
     return render_template('productos.html')
+
+@app.route('/grabar-cara')
+def grabarCara():
+    return render_template('grabar_cara.html')
+
+@app.route('/registro-completo')
+def registroCompletoCara():
+    return render_template('administrador-registra-vendedor-completo.html')
 
 @app.route('/registro-vendedor')
 def registroVendedor():
