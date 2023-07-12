@@ -13,51 +13,11 @@
             <img src="../static/IMAGE.SVG/flecha.png" alt="Botón" class="imagen-boton">
         </div>
     </a>
-
- <form class="formulario">
-
-    <h1>Registrar Nuevo Vendedor</h1>
-     <div class="contenedor">
-
-     <div class="input-contenedor">
-         <i class="fas fa-user icon"></i>
-         <input type="text" id="nombreInput" placeholder="Nombre Completo">
-
-         </div>
-
-         <div class="input-contenedor">
-         <i class="fas fa-envelope icon"></i>
-         <input type="text" id="emailInput" placeholder="Email">
-
-         </div>
-
-         <div class="input-contenedor">
-        <i class="fas fa-lock icon"></i>
-        <input type="password" id="passwordInput" placeholder="Password">
-
-         </div>
-         <div class="button1-container">
-            <input type="submit" value="Guardar" class="button1" id="guardarButton">
-            <p id="mensajeExito" class="mensaje-exito"></p>
-          </div>
-     </div>
-    </form>
+    <img src="{{url_for('video_feed')}}" class="img-fluid" id="video-feed-img">
     <div class="button2-container">
-        <input type="submit" value="Registro Facial" class="button2">
+        <input type="submit" value="Terminado" class="button2">
     </div>
-    <img src="{{ url_for('video_feed') }}" class="img-fluid" id="video-feed-img">
-
     <script src="../static/JS/administrador-registra-vendedor.js"></script>
-    <script>
-    // Obtener referencias al botón y a la imagen
-    var registroFacialBtn = document.getElementById('registro-facial-btn');
-    var videoFeedImg = document.getElementById('video-feed-img');
 
-    // Agregar un evento de clic al botón
-    registroFacialBtn.addEventListener('click', function() {
-        // Cambiar el atributo src de la imagen utilizando url_for('video_feed')
-        videoFeedImg.src = "{{ url_for('video_feed') }}";
-    });
-    </script>
 </body>
 </html>

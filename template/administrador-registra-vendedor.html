@@ -43,21 +43,9 @@
      </div>
     </form>
     <div class="button2-container">
-        <input type="submit" value="Registro Facial" class="button2">
+        <input type="submit" value="Iniciar Registro Facial" class="button2">
     </div>
-    <img src="{{ url_for('video_feed') }}" class="img-fluid" id="video-feed-img">
 
     <script src="../static/JS/administrador-registra-vendedor.js"></script>
-    <script>
-    // Obtener referencias al botón y a la imagen
-    var registroFacialBtn = document.getElementById('registro-facial-btn');
-    var videoFeedImg = document.getElementById('video-feed-img');
-
-    // Agregar un evento de clic al botón
-    registroFacialBtn.addEventListener('click', function() {
-        // Cambiar el atributo src de la imagen utilizando url_for('video_feed')
-        videoFeedImg.src = "{{ url_for('video_feed') }}";
-    });
-    </script>
 </body>
 </html>
